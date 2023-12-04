@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "mangaapi/wsgi.py",
+            "src": "odt/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -24,7 +24,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "mangaapi/wsgi.py"
+            "dest": "odt/wsgi.py"
         }
     ]
 }
