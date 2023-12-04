@@ -18,5 +18,8 @@ def home(requests):
                  {"title":data["6"]["title"],"image":data["6"]["image"],"link":"https://news.google.com/"+data["6"]["articlelink"]},
                  {"title":data["7"]["title"],"image":data["7"]["image"],"link":"https://news.google.com/"+data["7"]["articlelink"]},]
     }
-    print(dataJson["news1"])
+    #print(dataJson["news1"])
     return render(requests,"home.html",dataJson)
+
+def explore(request):
+    return render(request,"explore_website.html")
