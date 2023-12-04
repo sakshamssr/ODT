@@ -25,3 +25,13 @@ def home(requests):
 
 def explore(request):
     return render(request,"explore_website.html")
+
+def search(request,para):
+    responce=req.get("https://bonds-terminal.onrender.com/search/"+str(para))
+    data=responce.json()
+    print(data)
+    context={
+        "data":data,
+        "list":data.keys()
+    }
+    return render(request,"searchpage.html",context)

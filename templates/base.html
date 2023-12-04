@@ -13,7 +13,24 @@
       } else {
           document.documentElement.classList.remove('dark')
       }
-  </script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('search-navbar');
+
+        if (searchInput) {
+        searchInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+            // Retrieve the search term
+            const searchTerm = searchInput.value.trim();
+
+            // Perform your desired action, e.g., redirect to a search results page
+            if (searchTerm) {
+                window.location.href = `/search/${encodeURIComponent(searchTerm)}`;
+            }
+            }
+        });
+        }
+        });
+    </script>
   </head>
   <body class="bg-white border-gray-200 dark:bg-gray-900">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

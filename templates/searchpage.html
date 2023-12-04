@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block website %}
+
+
+
+<div class="flex justify-center items-center min-h-screen">
+    <div class="overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Sector
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Coupon Rate
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Maturity Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Days till Maturity
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Ask Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Ytm
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data.items %}
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ value.bondname }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ value.sector }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value.couponrate }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value.maturitydate }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value.daystillmaturity }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value.askprice }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value.ytm }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}
