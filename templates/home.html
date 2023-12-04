@@ -131,14 +131,15 @@
     <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-4">
       {% for i in news1 %}
           <a href="{{i.link}}" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden">
-              <img class="w-full h-48 md:h-96 object-cover rounded-t-lg md:rounded-t-none md:rounded-l-lg" src="{{i.image}}" alt="">
+              <img class="w-full h-40 md:h-80 object-cover rounded-t-lg md:rounded-t-none md:rounded-l-lg" src="{{i.image}}" alt="">
               <div class="flex flex-col justify-between p-4 leading-normal">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{i.title}}</h5>
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">News</p>
+                  <h5 class="mb-2 text-xl font-semibold tracking-tight text-gray-800 dark:text-white">{{i.title}}</h5>
+                  <p class="mb-3 text-sm font-normal text-gray-600 dark:text-gray-400">News</p>
               </div>
           </a>
       {% endfor %}
   </div>
+  
   
     <br>
     <hr>
