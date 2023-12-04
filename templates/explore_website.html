@@ -1,38 +1,21 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-  
-  </head>
-  <body>
+{% extends 'base.html' %}
 
-    <!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text"><a style="color:black"; href="home.html">ODT</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Learn</a></li>
+{% block website %}
 
-        </ul>
-      </div>
+  <div class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="container mx-auto py-8">
+        <div class="text-center">
+            <h2 class="text-4xl font-semibold mb-4 dark:text-white">Discover Our Offerings</h2>
+            <p class="text-lg text-gray-200">Popular Bonds</p>
+        </div>
     </div>
-    <!-- End Top Bar -->
-
-    <div class="callout large primary">
-      <div class="row column text-center">
-        <h1>POPULAR <h1>BONDS</h1></h1>
-      </div>
-    </div>
+  </div>
 
     <!-- We can now combine rows and columns when there's only one column in that row -->
     <div class="row medium-8 large-7 columns">
       <div class="blog-post">
         <h3>AAPL BOND <small>02/12/2023</small></h3>
-        <img class="thumbnail" src="images/appl stock.png">
+        <img class="thumbnail" src="static/images/appl stock.png">
         <div class="callout">
           <ul class="menu simple">
             <li><a href="#">Explore <strong>$APPL</strong></strong> bond</a></li>
@@ -41,7 +24,7 @@
         </div>
         <div class="blog-post">
             <h3>AAPL BOND <small>02/12/2023</small></h3>
-            <img class="thumbnail" src="images/appl stock.png">
+            <img class="thumbnail" src="static/images/appl stock.png">
             <div class="callout">
               <ul class="menu simple">
                 <li><a href="#">Explore <strong>$APPL</strong></strong> bond</a></li>
@@ -76,15 +59,4 @@
                           </ul>
                         </div>
 
-   
-
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
-</html>
-
-
-
+{% endblock %}
