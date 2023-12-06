@@ -36,3 +36,6 @@ def search(request,para):
         "name":para
     }
     return render(request,"searchpage.html",context)
+
+def details(request,para):
+    return render(request,"details.html")
