@@ -2,7 +2,14 @@
 
 {% block website %}
 
-
+<div class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="container mx-auto py-8">
+        <div class="text-center">
+            <h2 class="text-4xl font-semibold mb-4 dark:text-white">Search Result for : {{name}}</h2>
+            <p class="text-lg text-gray-200">Explore a wide range of services tailored just for you.</p>
+        </div>
+    </div>
+  </div>
 
 <div class="flex justify-center items-center min-h-screen">
     <div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -13,22 +20,13 @@
                         Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Sector
+                        Issuer
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Coupon Rate
+                        Maturity Year
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Maturity Date
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Days till Maturity
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Ask Price
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Ytm
+                        Isin
                     </th>
                 </tr>
             </thead>
@@ -36,25 +34,18 @@
                 {% for key, value in data.items %}
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ value.bondname }}
+                        <a href="google.com" class="hover:underline">
+                            {{ value.name }}
+                        </a>
                     </th>
                     <td class="px-6 py-4">
-                        {{ value.sector }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ value.couponrate }}
+                        {{ value.issuer }}
                     </td>
                     <td class="px-6 py-4">
                         {{ value.maturitydate }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ value.daystillmaturity }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ value.askprice }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ value.ytm }}
+                        {{ value.isin }}
                     </td>
                 </tr>
                 {% endfor %}

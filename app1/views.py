@@ -27,11 +27,12 @@ def explore(request):
     return render(request,"explore_website.html")
 
 def search(request,para):
-    responce=req.get("https://bonds-terminal.onrender.com/search/"+str(para))
+    responce=req.get("https://bond-terminal.vercel.app/search2/"+str(para))
     data=responce.json()
     print(data)
     context={
         "data":data,
-        "list":data.keys()
+        "list":data.keys(),
+        "name":para
     }
     return render(request,"searchpage.html",context)
