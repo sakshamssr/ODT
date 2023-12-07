@@ -4,6 +4,7 @@ import requests as req
 from .GNews_scrape import scrape
 
 url = "https://gnewssapi.vercel.app/news/finance"
+headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
 #print(data)
 
 # Create your views here.
@@ -38,7 +39,7 @@ def search(request,para):
     return render(request,"searchpage.html",context)
 
 def details(request,para):
-    response=req.get("https://www.bondsupermart.com/main/ws/v3/bond-info/bond-factsheet/"+str(para))
+    response=req.get("https://www.bondsupermart.com/main/ws/v3/bond-info/bond-factsheet/"+str(para),headers=headers)
     data=response.json()
     print(data)
     return render(request,"details.html")
