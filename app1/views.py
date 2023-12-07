@@ -27,8 +27,8 @@ def explore(request):
     return render(request,"explore_website.html")
 
 def search(request,para):
-    responce=req.get("https://bond-terminal.vercel.app/search2/"+str(para))
-    data=responce.json()
+    response=req.get("https://bond-terminal.vercel.app/search2/"+str(para))
+    data=response.json()
     print(data)
     context={
         "data":data,
@@ -38,4 +38,7 @@ def search(request,para):
     return render(request,"searchpage.html",context)
 
 def details(request,para):
+    response=req.get("https://www.bondsupermart.com/main/ws/v3/bond-info/bond-factsheet/"+str(para))
+    data=response.json()
+    print(data)
     return render(request,"details.html")
