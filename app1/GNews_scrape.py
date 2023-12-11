@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-def scrape():
+def scrape(query):
     l=[]
     store={}
 
-    URL = "https://news.google.com/search?q=finance"
+    URL = "https://news.google.com/search?q="+str(query)
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
     name = soup.find_all(class_="JtKRv")

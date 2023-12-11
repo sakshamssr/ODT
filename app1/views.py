@@ -4,14 +4,9 @@ import requests as req
 from .GNews_scrape import scrape
 from .graph2 import graph_data
 
-url = "https://gnewssapi.vercel.app/news/finance"
-headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
-#print(data)
-
 # Create your views here.
 def home(requests):
-    response = scrape()
-    data = scrape()
+    data = scrape("query")
     dataJson={
         "news1":[{"title":data[0]["title"],"image":data[0]["image"],"link":"https://news.google.com/"+data[0]["articlelink"]},
                  {"title":data[1]["title"],"image":data[1]["image"],"link":"https://news.google.com/"+data[1]["articlelink"]},
@@ -39,7 +34,7 @@ def search(request,para):
     }
     return render(request,"searchpage.html",context)
 
-def details(request,para,para2,para3):
+def details(request,para,para2,para3,bondname):
     from json import dumps
     response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(para2))
     data=response.json()
@@ -53,6 +48,7 @@ def details(request,para,para2,para3):
     print(gdata)
     del data["graphdata"]
 
+    newsdata = scrape(bondname+" bond")
     #print(type(fetchgraphData))
 
     context={
@@ -61,6 +57,12 @@ def details(request,para,para2,para3):
         "date":gdata["date"],
         "close":gdata["close"],
         "graphdata":jdata,
-        "fetchgraph":fetchgraphData
+        "fetchgraph":fetchgraphData,
+        "bondname":bondname,
+        "news1":[{"title":newsdata[0]["title"],"image":newsdata[0]["image"],"link":"https://news.google.com/"+newsdata[0]["articlelink"]},
+                 {"title":newsdata[1]["title"],"image":newsdata[1]["image"],"link":"https://news.google.com/"+newsdata[1]["articlelink"]},
+                 {"title":newsdata[2]["title"],"image":newsdata[2]["image"],"link":"https://news.google.com/"+newsdata[2]["articlelink"]},
+                 {"title":newsdata[3]["title"],"image":newsdata[3]["image"],"link":"https://news.google.com/"+newsdata[3]["articlelink"]},
+                 {"title":newsdata[4]["title"],"image":newsdata[4]["image"],"link":"https://news.google.com/"+newsdata[4]["articlelink"]},],
     }
     return render(request,"details.html",context)

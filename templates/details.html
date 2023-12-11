@@ -12,7 +12,7 @@
 
 <div class="flex flex-col md:flex-row">
     <div class="flex-1">
-        <div class="mx-4 my-8 max-w-4xl w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+        <div class="mx-4 my-8 bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
             <div class="flex justify-between">
                 <div>
                     <h5 class="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">Current Price: ${{fetchgraph.PreviousClose}}</h5>
@@ -29,9 +29,39 @@
             </div>
             <div id="labels-chart" class="px-2.5"></div>
         </div>
+        <div>
+            
+            <div class="container mx-auto">
+                <div class="flex-1">
+                    <div class="bg-white border-gray-200 dark:bg-gray-900">
+                        <div class="container mx-auto">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-semibold mb-4 dark:text-white">News: {{bondname}} Bonds</h3>
+                            </div>
+                        </div>
+                    </div>
+                    {% for i in news1 %}
+                    <div class="mx-4 my-2 bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-2 flex items-center">
+                        <!-- Content on the left side -->
+                        <div class="flex-1">
+                            <a href="{{i.link}}">
+                                <h3 class="text-xl mb-4 text-gray-900 dark:text-white">{{i.title}}</h3>
+                            </a>
+                        </div>
+                
+                        <!-- Image on the right side -->
+                        <div class="ml-4">
+                            <img src="{{i.image}}" alt="{{i.title}}" class="w-32 h-32 rounded-full">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
     </div>
-    <div class="flex-3 pt-6">
-        <div class="overflow-x-auto shadow-md sm:rounded-lg pr-4">
+    <div class="flex-3 pt-8">
+        <div class="overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <tbody>
                     {% for key, value in data.items %}
@@ -50,6 +80,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     var data = JSON.parse("{{graphdata|escapejs}}"); 
