@@ -1,10 +1,10 @@
 import requests
 #import plotly.express as px
 
-from .mdate import getdate
+from .mdate import getdate,todaydate
 
 def graph_data(tkdata):
-    response=requests.get("https://markets.businessinsider.com/Ajax/Chart_GetChartData?instrumentType=Bond&tkData="+str(tkdata)+"&from=19700201&to=20231211")
+    response=requests.get("https://markets.businessinsider.com/Ajax/Chart_GetChartData?instrumentType=Bond&tkData="+str(tkdata)+"&from=19700201&to="+str(todaydate()))
     data=response.json()
 
     #print(data)

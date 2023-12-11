@@ -15,7 +15,8 @@ def home(requests):
                  {"title":data[4]["title"],"image":data[4]["image"],"link":"https://news.google.com/"+data[4]["articlelink"]},
                  {"title":data[5]["title"],"image":data[5]["image"],"link":"https://news.google.com/"+data[5]["articlelink"]},
                  {"title":data[6]["title"],"image":data[6]["image"],"link":"https://news.google.com/"+data[6]["articlelink"]},
-                 {"title":data[7]["title"],"image":data[7]["image"],"link":"https://news.google.com/"+data[7]["articlelink"]},]
+                 {"title":data[7]["title"],"image":data[7]["image"],"link":"https://news.google.com/"+data[7]["articlelink"]},],
+        "title":"Welcome"
     }
     #print(dataJson["news1"])
     return render(requests,"home.html",dataJson)
@@ -30,7 +31,8 @@ def search(request,para):
     context={
         "data":data,
         "list":data.keys(),
-        "name":para
+        "name":para,
+        "title":"Search",
     }
     return render(request,"searchpage.html",context)
 
@@ -63,9 +65,19 @@ def details(request,para,para2,para3,bondname):
                  {"title":newsdata[1]["title"],"image":newsdata[1]["image"],"link":"https://news.google.com/"+newsdata[1]["articlelink"]},
                  {"title":newsdata[2]["title"],"image":newsdata[2]["image"],"link":"https://news.google.com/"+newsdata[2]["articlelink"]},
                  {"title":newsdata[3]["title"],"image":newsdata[3]["image"],"link":"https://news.google.com/"+newsdata[3]["articlelink"]},],
-        "issue":data["Issue Price"]
+        "issue":data["Issue Price"],
+        "title": bondname
     }
     return render(request,"details.html",context)
 
 def about(request):
-    return render(request,"about.html")
+    context={
+        "title":"About",
+    }
+    return render(request,"about.html",context)
+
+def contact(request):
+    context={
+        "title":"Contact"
+    }
+    return render(request,"contact.html",context)

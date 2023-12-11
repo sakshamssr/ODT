@@ -33,7 +33,16 @@ def today():
     todaytime=datetime.strptime(str(date.today()),"%Y-%m-%d")
     todayepoch=datetime.timestamp(todaytime)
 
+    #print(todaytime)
+
     return todayepoch
+
+def todaydate():
+    
+    todaytime=datetime.strptime(str(date.today()),"%Y-%m-%d")
+    today=str(todaytime).split(" ")[0].replace("-","")
+    
+    return today
 
 def tillmaturity(mdate,tdate):
     #print(mdate)
