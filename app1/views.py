@@ -62,7 +62,6 @@ def details(request,para,para2,para3,bondname):
         "news1":[{"title":newsdata[0]["title"],"image":newsdata[0]["image"],"link":"https://news.google.com/"+newsdata[0]["articlelink"]},
                  {"title":newsdata[1]["title"],"image":newsdata[1]["image"],"link":"https://news.google.com/"+newsdata[1]["articlelink"]},
                  {"title":newsdata[2]["title"],"image":newsdata[2]["image"],"link":"https://news.google.com/"+newsdata[2]["articlelink"]},
-                 {"title":newsdata[3]["title"],"image":newsdata[3]["image"],"link":"https://news.google.com/"+newsdata[3]["articlelink"]},
-                 {"title":newsdata[4]["title"],"image":newsdata[4]["image"],"link":"https://news.google.com/"+newsdata[4]["articlelink"]},],
+                 {"title":newsdata[3]["title"],"image":newsdata[3]["image"],"link":"https://news.google.com/"+newsdata[3]["articlelink"]},],
     }
     return render(request,"details.html",context)
