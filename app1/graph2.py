@@ -3,8 +3,8 @@ import requests
 
 from .mdate import getdate
 
-def graph_data():
-    response=requests.get("https://markets.businessinsider.com/Ajax/Chart_GetChartData?instrumentType=Bond&tkData=1,32823537,1330,88&from=19700201&to=20231211")
+def graph_data(tkdata):
+    response=requests.get("https://markets.businessinsider.com/Ajax/Chart_GetChartData?instrumentType=Bond&tkData="+str(tkdata)+"&from=19700201&to=20231211")
     data=response.json()
 
     #print(data)

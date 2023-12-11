@@ -44,20 +44,23 @@ def details(request,para,para2,para3):
     response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(para2))
     data=response.json()
     print(data)
-    gdata=graph_data()
-    jdata=dumps(gdata)
-    print(gdata)
 
     fetchgraphData=eval(data["graphdata"].split(";")[0].replace("vardetailChartViewmodel",""))
     print(fetchgraphData)
 
-    print(type(fetchgraphData))
+    gdata=graph_data(fetchgraphData["TKData"])
+    jdata=dumps(gdata)
+    print(gdata)
+    del data["graphdata"]
+
+    #print(type(fetchgraphData))
 
     context={
         "data":data,
         "name":para3,
         "date":gdata["date"],
         "close":gdata["close"],
-        "graphdata":jdata
+        "graphdata":jdata,
+        "fetchgraph":fetchgraphData
     }
     return render(request,"details.html",context)
