@@ -26,7 +26,7 @@ def explore(request):
 def search(request,para):
     response=req.get("https://bonds-terminal.vercel.app/search2/"+str(para))
     data=response.json()
-    print(data)
+    #print(data)
     context={
         "data":data,
         "list":data.keys(),
@@ -38,14 +38,14 @@ def details(request,para,para2,para3,bondname):
     from json import dumps
     response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(para2))
     data=response.json()
-    print(data)
+    #print(data)
 
     fetchgraphData=eval(data["graphdata"].split(";")[0].replace("vardetailChartViewmodel",""))
-    print(fetchgraphData)
+    #print(fetchgraphData)
 
     gdata=graph_data(fetchgraphData["TKData"])
     jdata=dumps(gdata)
-    print(gdata)
+    #print(gdata)
     del data["graphdata"]
 
     newsdata = scrape(bondname+" bond")
@@ -63,5 +63,9 @@ def details(request,para,para2,para3,bondname):
                  {"title":newsdata[1]["title"],"image":newsdata[1]["image"],"link":"https://news.google.com/"+newsdata[1]["articlelink"]},
                  {"title":newsdata[2]["title"],"image":newsdata[2]["image"],"link":"https://news.google.com/"+newsdata[2]["articlelink"]},
                  {"title":newsdata[3]["title"],"image":newsdata[3]["image"],"link":"https://news.google.com/"+newsdata[3]["articlelink"]},],
+        "issue":data["Issue Price"]
     }
     return render(request,"details.html",context)
+
+def about(request):
+    return render(request,"about.html")
