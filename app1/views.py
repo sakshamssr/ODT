@@ -57,7 +57,7 @@ def details(request,para,para2,para3):
 
     context={
         "data":data,
-        "name":para3,
+        "name":para3.replace("%20"," "),
         "date":gdata["date"],
         "close":gdata["close"],
         "graphdata":jdata,
