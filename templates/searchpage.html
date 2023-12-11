@@ -9,7 +9,7 @@
             <p class="text-lg text-gray-200">Explore a wide range of services tailored just for you.</p>
         </div>
     </div>
-  </div>
+</div>
 
 <div class="flex justify-center items-center min-h-screen">
     <div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -35,9 +35,10 @@
             </thead>
             <tbody>
                 {% for key, value in data.items %}
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <a href="/details/{{value.isin}}" class="hover:underline">
+                        <a href="/details/{{value.isin}}/{{key}}/{{value.name}}" class="hover:underline">
                             {{ value.name }}
                         </a>
                     </th>

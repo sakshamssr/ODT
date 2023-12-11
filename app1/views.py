@@ -2,6 +2,7 @@ from django.shortcuts import render
 import requests as req
 
 from .GNews_scrape import scrape
+from .graph2 import graph_data
 
 url = "https://gnewssapi.vercel.app/news/finance"
 headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
@@ -28,7 +29,7 @@ def explore(request):
     return render(request,"explore_website.html")
 
 def search(request,para):
-    response=req.get("https://bond-terminal.vercel.app/search2/"+str(para))
+    response=req.get("https://bonds-terminal.vercel.app/search2/"+str(para))
     data=response.json()
     print(data)
     context={
@@ -38,8 +39,25 @@ def search(request,para):
     }
     return render(request,"searchpage.html",context)
 
-def details(request,para):
-    response=req.get("https://www.bondsupermart.com/main/ws/v3/bond-info/bond-factsheet/"+str(para),headers=headers)
+def details(request,para,para2,para3):
+    from json import dumps
+    response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(para2))
     data=response.json()
     print(data)
-    return render(request,"details.html")
+    gdata=graph_data()
+    jdata=dumps(gdata)
+    print(gdata)
+
+    fetchgraphData=eval(data["graphdata"].split(";")[0].replace("vardetailChartViewmodel",""))
+    print(fetchgraphData)
+
+    print(type(fetchgraphData))
+
+    context={
+        "data":data,
+        "name":para3,
+        "date":gdata["date"],
+        "close":gdata["close"],
+        "graphdata":jdata
+    }
+    return render(request,"details.html",context)
