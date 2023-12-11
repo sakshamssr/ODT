@@ -1,5 +1,5 @@
 import requests
-import plotly.express as px
+#import plotly.express as px
 
 from .mdate import getdate
 
@@ -20,8 +20,7 @@ def graph_data():
 
     return final_data
 
-
-
+    '''
     fig = px.line(x=date_data, y=close_data, title='Graph')
     #fig.add_scatter(x=bidx,y=bidy)
     fig.update_xaxes(
@@ -31,4 +30,4 @@ def graph_data():
     )
 
 
-    fig.show()
+    fig.show()'''
