@@ -54,6 +54,21 @@
                 transform: translateY(-5px);
             }
         }
+        @keyframes floatAnimation {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .float-card {
+        animation: floatAnimation 3s infinite;
+    }
 </style>
 <script>
     function updateCountdown() {
@@ -82,7 +97,7 @@
     <div class="flex pl-8 pt-16 md:pl-8 ml-16">
         <div class="grid grid-cols-2 gap-4 md:grid-cols-2 p-2 md:p-8 ml-2 md:ml-16">
             {% for i in topc %}
-            <div class="bg-white dark:bg-gray-800 shadow-md md:p-2 p-4 rounded-md ml-4">
+            <div class="float-card bg-white dark:bg-gray-800 shadow-md md:p-2 p-4 rounded-md ml-4">
                 <div class="text-xl font-semibold mb-2 dark:text-white">{{i.name}}</div>
                 <div class="text-gray-600 dark:text-gray-400 mb-2">Current Price: ${{i.LastPrice}}</div>
                 <div class="text-gray-600 dark:text-gray-400 mb-2">Last Price: ${{i.PreviousClosePrice}}</div>
@@ -97,7 +112,7 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="bg-white dark:bg-gray-800 shadow-md md:p-2 p-4 rounded-md">
+            <div class="float-card bg-white dark:bg-gray-800 shadow-md md:p-2 p-4 rounded-md">
                 <div class="countdown-card">
                     <div class="text-lg font-semibold mb-2 dark:text-black">US Market Closure:</div>
                     <div class="countdown-timer" id="countdown-timer">--:--:--</div>
@@ -107,6 +122,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="container mx-auto py-8 text-left flex items-center justify-between p-8">
