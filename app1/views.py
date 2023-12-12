@@ -6,7 +6,7 @@ from .graph2 import graph_data,topchart
 
 # Create your views here.
 def home(requests):
-    data = scrape("query")
+    data = scrape("live mint")
     top=topchart()
 
     topbonds=req.get("https://bonds-terminal.vercel.app/topbonds").json()
