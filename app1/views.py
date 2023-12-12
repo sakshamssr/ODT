@@ -48,6 +48,14 @@ def search(request,para):
     response=req.get("https://bonds-terminal.vercel.app/search2/"+str(para))
     data=response.json()
     #print(data)
+
+    datakeys=data.keys()
+
+    for i in datakeys:
+        data[i]["name"]=data[i]["name"].replace("/","%5E")
+    
+    
+
     context={
         "data":data,
         "list":data.keys(),
@@ -73,9 +81,11 @@ def details(request,para,para2,para3,bondname):
     newsdata = scrape(bondname+" bond")
     #print(type(fetchgraphData))
 
+    print(para3)
+
     context={
         "data":data,
-        "name":para3.replace("%20"," "),
+        "name":para3.replace("%20"," ").replace("^","/"),
         "date":gdata["date"],
         "close":gdata["close"],
         "graphdata":jdata,
