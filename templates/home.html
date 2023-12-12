@@ -24,6 +24,36 @@
         font-size: 1rem;
         color: #777777;
     }
+    .up-arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid #3498db; /* Change color as needed */
+        }
+
+        /* Down arrow */
+        .down-arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #e74c3c; /* Change color as needed */
+        }
+
+        /* Animated arrow going up */
+        .animated-up-arrow {
+            animation: animateUpArrow 1s infinite alternate; /* Adjust animation speed and style as needed */
+        }
+
+        @keyframes animateUpArrow {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-5px);
+            }
+        }
 </style>
 <script>
     function updateCountdown() {
@@ -77,8 +107,6 @@
     </div>
 </div>
 
-
-
 <div class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="container mx-auto py-8">
         <div class="text-center">
@@ -88,74 +116,68 @@
     </div>
 </div>
 
-
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-      <div class="max-w-sm mx-auto bg-white border border-gray-300 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
-          <a href="explore_website.html">
-              <img class="w-full h-40 object-cover" src="https://i.ibb.co/S5MTSJN/bonds.jpg" alt="Bonds" />
-          </a>
-          <div class="p-4">
-              <a href="explore_website.html">
-                  <h5 class="mb-2 text-xl font-semibold text-gray-800 dark:text-white">Bonds</h5>
-              </a>
-              <a href="explore_website.html" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Explore Bonds
-                  <svg class="w-4 h-4 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                  </svg>
-              </a>
-          </div>
-      </div>
-      <!-- Add more cards as needed -->
-      <div class="max-w-sm mx-auto bg-white border border-gray-300 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
-        <a href="explore_website.html">
-            <img class="w-full h-40 object-cover" src="https://i.ibb.co/S5MTSJN/bonds.jpg" alt="Stocks" />
-        </a>
-        <div class="p-4">
-            <a href="explore_website.html">
-                <h5 class="mb-2 text-xl font-semibold text-gray-800 dark:text-white">Stocks</h5>
-            </a>
-            <a href="explore_website.html" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Explore Stocks
-                <svg class="w-4 h-4 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </a>
+    <div class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="container mx-auto py-8">
+            <div class="text-center">
+                <h2 class="text-4xl font-semibold mb-4 dark:text-white">TOP BONDS</h2>
+                <hr>
+            </div>
         </div>
       </div>
-      <div class="max-w-sm mx-auto bg-white border border-gray-300 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
-        <a href="explore_website.html">
-            <img class="w-full h-40 object-cover" src="https://i.ibb.co/S5MTSJN/bonds.jpg" alt="Gold" />
-        </a>
-        <div class="p-4">
-            <a href="explore_website.html">
-                <h5 class="mb-2 text-xl font-semibold text-gray-800 dark:text-white">Gold</h5>
-            </a>
-            <a href="explore_website.html" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Explore Gold
-                <svg class="w-4 h-4 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </a>
+    <div class="flex justify-start items-start flex-col md:flex-row">
+        <div class="flex-2 pl-8">
+            <div class="overflow-x-auto shadow-md sm:rounded-lg ml-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Isin
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Yield
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Moodys Rating
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Maturity Date
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for value in topbonds %}
+                        <tr
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <a href="/details/{{value.name}}/{{value.isin}}/{{value.link}}/{{value.name}}" class="hover:underline">
+                                    {{ value.name }}
+                                </a>
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ value.isin }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ value.yield }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ value.moodys }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ value.date }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
-      <div class="max-w-sm mx-auto bg-white border border-gray-300 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
-        <a href="explore_website.html">
-            <img class="w-full h-40 object-cover" src="https://i.ibb.co/S5MTSJN/bonds.jpg" alt="Options" />
-        </a>
-        <div class="p-4">
-            <a href="explore_website.html">
-                <h5 class="mb-2 text-xl font-semibold text-gray-800 dark:text-white">Options</h5>
-            </a>
-            <a href="explore_website.html" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Explore Options
-                <svg class="w-4 h-4 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </a>
+        <div class="flex-1 min-h-screen pl-8">
+            <h2 class="text-2xl font-semibold mb-4 dark:text-white">About Bonds</h2>
         </div>
-      </div>
-    </div> 
+    </div>
 
     <div class="bg-white border-gray-200 dark:bg-gray-900">
       <div class="container mx-auto py-8">
@@ -181,6 +203,5 @@
   
     <br>
     <hr>
-    
 
 {% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block website %}
+<!-- Page Header -->
+<div class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-semibold">Financial Education Hub</h1>
+        <p class="mt-2 text-lg opacity-75">Empowering You with Financial Knowledge</p>
+    </div>
+</div>
+
+<!-- Content Sections -->
+<div class="flex justify-center flex-col md:flex-row">
+    <div class="container mx-auto py-8">
+    
+        <!-- Section 1: Introduction -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Welcome to Our Educational Platform</h2>
+            <p class="text-gray-700">
+                Start your journey to financial literacy. Explore a wide range of topics designed to help you make informed decisions about your finances.
+            </p>
+        </section>
+    
+        <!-- Section 2: Core Topics -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Core Financial Topics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Add cards for each core topic -->
+                <div class="bg-white p-6 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Investing 101</h3>
+                    <p class="text-gray-700">Learn the basics of investing, including stocks, bonds, and mutual funds.</p>
+                    <a href="#" class="text-blue-500 hover:underline">Explore Investing</a>
+                </div>
+                <!-- Repeat similar cards for other topics -->
+            </div>
+        </section>
+    
+        <!-- Section 3: In-Depth Guides -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">In-Depth Guides</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Add cards for each in-depth guide -->
+                <div class="bg-white p-6 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Understanding Stock Market Trends</h3>
+                    <p class="text-gray-700">Dive deep into analyzing and understanding stock market trends for successful investing.</p>
+                    <a href="#" class="text-blue-500 hover:underline">Read Guide</a>
+                </div>
+                <!-- Repeat similar cards for other guides -->
+            </div>
+        </section>
+    
+        <!-- Section 4: Video Tutorials -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Video Tutorials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Add cards for each video tutorial -->
+                <div class="bg-white p-6 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Building a Diversified Portfolio</h3>
+                    <p class="text-gray-700">Watch our video tutorial on how to build a diversified investment portfolio.</p>
+                    <a href="#" class="text-blue-500 hover:underline">Watch Tutorial</a>
+                </div>
+                <!-- Repeat similar cards for other tutorials -->
+            </div>
+        </section>
+    
+        <!-- Section 5: Resources -->
+        <section>
+            <h2 class="text-2xl font-semibold mb-4">Additional Resources</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><a href="#" class="text-blue-500 hover:underline">Recommended Books for Financial Education</a></li>
+                <li><a href="#" class="text-blue-500 hover:underline">Useful Websites and Tools</a></li>
+                <!-- Add more resource links as needed -->
+            </ul>
+        </section>
+    
+    </div>
+</div>
+{% endblock %}

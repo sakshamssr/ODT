@@ -9,6 +9,9 @@ def home(requests):
     data = scrape("query")
     top=topchart()
 
+    topbonds=req.get("https://bonds-terminal.vercel.app/topbonds").json()
+    print(topbonds)
+
     topcolor=[]
 
     for i in range(0,len(top)):
@@ -25,18 +28,19 @@ def home(requests):
             topcolor[i]["transform"]=" rotate-180"
     
     #print(topcolor)
+    news=[]
+
+    for i in range(0,8+1):
+        try:
+            news.append({"title":data[i]["title"],"image":data[i]["image"],"link":"https://news.google.com/"+data[i]["articlelink"]})
+        except:
+            break
 
     dataJson={
-        "news1":[{"title":data[0]["title"],"image":data[0]["image"],"link":"https://news.google.com/"+data[0]["articlelink"]},
-                 {"title":data[1]["title"],"image":data[1]["image"],"link":"https://news.google.com/"+data[1]["articlelink"]},
-                 {"title":data[2]["title"],"image":data[2]["image"],"link":"https://news.google.com/"+data[2]["articlelink"]},
-                 {"title":data[3]["title"],"image":data[3]["image"],"link":"https://news.google.com/"+data[3]["articlelink"]},
-                 {"title":data[4]["title"],"image":data[4]["image"],"link":"https://news.google.com/"+data[4]["articlelink"]},
-                 {"title":data[5]["title"],"image":data[5]["image"],"link":"https://news.google.com/"+data[5]["articlelink"]},
-                 {"title":data[6]["title"],"image":data[6]["image"],"link":"https://news.google.com/"+data[6]["articlelink"]},
-                 {"title":data[7]["title"],"image":data[7]["image"],"link":"https://news.google.com/"+data[7]["articlelink"]},],
+        "news1":news,
         "title":"Welcome",
         "topc":topcolor,
+        "topbonds":topbonds,
     }
     #print(dataJson["news1"])
     return render(requests,"home.html",dataJson)
@@ -53,8 +57,6 @@ def search(request,para):
 
     for i in datakeys:
         data[i]["name"]=data[i]["name"].replace("/","%5E")
-    
-    
 
     context={
         "data":data,
@@ -64,9 +66,9 @@ def search(request,para):
     }
     return render(request,"searchpage.html",context)
 
-def details(request,para,para2,para3,bondname):
+def details(request,para,link,para3,bondname):
     from json import dumps
-    response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(para2))
+    response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(link))
     data=response.json()
     #print(data)
 
@@ -78,10 +80,17 @@ def details(request,para,para2,para3,bondname):
     #print(gdata)
     del data["graphdata"]
 
-    newsdata = scrape(bondname+" bond")
+    newsdata = scrape(str(bondname).replace("%20"," ")+" bond")
     #print(type(fetchgraphData))
 
     print(para3)
+    news=[]
+
+    for i in range(0,5):
+        try:
+            news.append({"title":newsdata[i]["title"],"image":newsdata[i]["image"],"link":"https://news.google.com/"+newsdata[i]["articlelink"]})
+        except:
+            break
 
     context={
         "data":data,
@@ -91,10 +100,7 @@ def details(request,para,para2,para3,bondname):
         "graphdata":jdata,
         "fetchgraph":fetchgraphData,
         "bondname":bondname,
-        "news1":[{"title":newsdata[0]["title"],"image":newsdata[0]["image"],"link":"https://news.google.com/"+newsdata[0]["articlelink"]},
-                 {"title":newsdata[1]["title"],"image":newsdata[1]["image"],"link":"https://news.google.com/"+newsdata[1]["articlelink"]},
-                 {"title":newsdata[2]["title"],"image":newsdata[2]["image"],"link":"https://news.google.com/"+newsdata[2]["articlelink"]},
-                 {"title":newsdata[3]["title"],"image":newsdata[3]["image"],"link":"https://news.google.com/"+newsdata[3]["articlelink"]},],
+        "news1":news,
         "issue":data["Issue Price"],
         "title": bondname
     }
@@ -102,12 +108,18 @@ def details(request,para,para2,para3,bondname):
 
 def about(request):
     context={
-        "title":"About",
+        "title":"About Us",
     }
     return render(request,"about.html",context)
 
 def contact(request):
     context={
-        "title":"Contact"
+        "title":"Contact Us"
     }
     return render(request,"contact.html",context)
+
+def learn(request):
+    context={
+        "title":"Learn About Finance - Bonds"
+    }
+    return render(request,"learn.html",context)
