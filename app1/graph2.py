@@ -31,3 +31,14 @@ def graph_data(tkdata):
 
 
     fig.show()'''
+
+def topchart():
+    store={}
+
+    URL="https://markets.businessinsider.com/ajax/finanzen/api/commodities?urls=gold-price,oil-price"
+    headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
+
+    page = requests.get(URL,headers=headers)
+    data = page.json()
+
+    return data

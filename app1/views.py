@@ -2,11 +2,30 @@ from django.shortcuts import render
 import requests as req
 
 from .GNews_scrape import scrape
-from .graph2 import graph_data
+from .graph2 import graph_data,topchart
 
 # Create your views here.
 def home(requests):
     data = scrape("query")
+    top=topchart()
+
+    topcolor=[]
+
+    for i in range(0,len(top)):
+        topcolor.append(top[i]["Quotes"][0])
+
+    for i in range(0,len(topcolor)):
+        if(topcolor[i]["ChangePercent"]) > 0:
+            topcolor[i]["color"]="green"
+            topcolor[i]["name"]=top[i]["Name"].capitalize()
+            topcolor[i]["transform"]=""
+        else:
+            topcolor[i]["color"]="red"
+            topcolor[i]["name"]=top[i]["Name"].capitalize()
+            topcolor[i]["transform"]=" rotate-180"
+    
+    #print(topcolor)
+
     dataJson={
         "news1":[{"title":data[0]["title"],"image":data[0]["image"],"link":"https://news.google.com/"+data[0]["articlelink"]},
                  {"title":data[1]["title"],"image":data[1]["image"],"link":"https://news.google.com/"+data[1]["articlelink"]},
@@ -16,7 +35,8 @@ def home(requests):
                  {"title":data[5]["title"],"image":data[5]["image"],"link":"https://news.google.com/"+data[5]["articlelink"]},
                  {"title":data[6]["title"],"image":data[6]["image"],"link":"https://news.google.com/"+data[6]["articlelink"]},
                  {"title":data[7]["title"],"image":data[7]["image"],"link":"https://news.google.com/"+data[7]["articlelink"]},],
-        "title":"Welcome"
+        "title":"Welcome",
+        "topc":topcolor,
     }
     #print(dataJson["news1"])
     return render(requests,"home.html",dataJson)

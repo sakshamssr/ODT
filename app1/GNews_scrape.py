@@ -23,5 +23,5 @@ def scrape(query):
         except:
             print("That's Enough!")
             break
-    print(store[0])
+    #print(store[0])
     return store
