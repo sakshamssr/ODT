@@ -96,7 +96,7 @@ def details(request,para,link,para3,bondname):
         "close":gdata["close"],
         "graphdata":jdata,
         "fetchgraph":fetchgraphData,
-        "bondname":bondname,
+        "bondname":bondname.replace("%20"," "),
         "news1":news,
         "issue":data["Issue Price"],
         "title": bondname.replace("%20"," ")
