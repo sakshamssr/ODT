@@ -2,52 +2,6 @@
 
 {% block website %}
 <!-- Page Header -->
-
-<style>
-    .credit-score-meter {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      background-image: conic-gradient(
-        #e74c3c 0% 33%, /* Red */
-        #f39c12 33% 66%, /* Orange */
-        #2ecc71 66% 100% /* Green */
-      );
-    }
-
-    .credit-score-inner-circle {
-      width: 70%;
-      height: 70%;
-      border-radius: 50%;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: bold;
-      color: #000000;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 0;
-      height: 0;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-bottom: 12px solid #ffffff;
-      z-index: 1; /* Ensure arrow is above the inner circle */
-    }
-</style>
-
 <div class="bg-gray-800 text-white py-12">
     <div class="flex items-center justify-end">
         <div class="flex-1 text-right">
@@ -59,13 +13,6 @@
                 <p class="mt-2 text-lg opacity-75">Empowering You with Financial Knowledge</p>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="credit-score-meter">
-    <div class="arrow"></div>
-    <div class="credit-score-inner-circle">
-      750 <!-- Replace with the actual credit score -->
     </div>
 </div>
 
