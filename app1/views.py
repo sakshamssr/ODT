@@ -31,10 +31,7 @@ def home(requests):
     news=[]
 
     for i in range(0,len(data)):
-        try:
-            news.append({"title":data[i]["title"],"image":data[i]["image"],"link":"https://news.google.com/"+data[i]["articlelink"]})
-        except:
-            break
+        news.append({"title":data[i]["title"],"image":data[i]["image"],"link":"https://news.google.com/"+data[i]["articlelink"]})
 
     dataJson={
         "news1":news,
