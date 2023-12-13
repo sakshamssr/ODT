@@ -30,7 +30,7 @@ def home(requests):
     #print(topcolor)
     news=[]
 
-    for i in range(0,len(data)):
+    for i in range(0,24):
         news.append({"title":data[i]["title"],"image":data[i]["image"],"link":"https://news.google.com/"+data[i]["articlelink"]})
 
     dataJson={
