@@ -102,7 +102,7 @@ def details(request,para,link,para3,bondname):
         "bondname":bondname,
         "news1":news,
         "issue":data["Issue Price"],
-        "title": bondname
+        "title": bondname.replace("%20"," ")
     }
     return render(request,"details.html",context)
 
