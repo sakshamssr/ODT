@@ -2,13 +2,50 @@
 
 {% block website %}
 
+<style>
+    .credit-score-meter {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-image: conic-gradient(
+        #e74c3c 0% 33%, /* Red */
+        #f39c12 33% 66%, /* Orange */
+        #2ecc71 66% 100% /* Green */
+      );
+    }
+
+    .credit-score-inner-circle {
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #000000;
+    }
+  </style>
+
 <div class="bg-white border-gray-200 dark:bg-gray-900">
-    <div class="container mx-auto py-2">
-        <div class="text-center">
+    <div class="container mx-auto py-2 flex items-center justify-center">
+        <div class="text-center flex-1">
             <h2 class="text-4xl font-semibold mb-4 dark:text-white">{{name}}</h2>
+        </div>
+        <div class="credit-score-meter mx-4">
+            <div class="credit-score-inner-circle">
+              {{data.rating}} <!-- Replace with the actual credit score -->
+            </div>
         </div>
     </div>
 </div>
+
 
 <div class="flex flex-col md:flex-row">
     <div class="flex-1">
