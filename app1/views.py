@@ -1,8 +1,8 @@
 from django.shortcuts import render
 import requests as req
-
 from .GNews_scrape import scrape
 from .graph2 import graph_data,topchart
+from .contact import send_email
 
 # Create your views here.
 def home(requests):
@@ -120,3 +120,13 @@ def learn(request):
         "title":"Learn About Finance - Bonds"
     }
     return render(request,"learn.html",context)
+
+def submitcontact(request):
+    if request.method == "POST":
+        subject = request.POST.get('subject')
+        body = request.POST.get('message')
+        to_email = 'sakshamraghav57@gmail.com'
+
+        send_email(subject, body, to_email)
+
+        return render(request, "contact.html", {'success': True,"title":"Thanks For Contacting Us!"})
