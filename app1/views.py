@@ -124,9 +124,13 @@ def learn(request):
 def submitcontact(request):
     if request.method == "POST":
         subject = request.POST.get('subject')
+        email = request.POST.get('email')
         body = request.POST.get('message')
         to_email = 'sakshamraghav57@gmail.com'
 
-        send_email(subject, body, to_email)
+        tosend="From: "+email + " Message:"+body
+
+        send_email(subject, tosend, to_email)
+        #print(tosend)
 
         return render(request, "contact.html", {'success': True,"title":"Thanks For Contacting Us!"})
