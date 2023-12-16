@@ -2,7 +2,7 @@
 
 {% block website %}
 
-<div class="bg-white border-gray-200 dark:bg-gray-900">
+<div class="bg-gray-900 border-gray-200 dark:bg-gray-900">
     <div class="container mx-auto py-8">
         <div class="text-center">
             <h2 class="text-4xl font-semibold mb-4 dark:text-white">Search Result for : {{name}}</h2>
@@ -36,7 +36,7 @@
             <tbody>
                 {% for key, value in data.items %}
                 <tr
-                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    class="bg-gray-900 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         <a href="/details/{{name}}/{{value.isin}}/{{key}}/{{value.name}}" class="hover:underline">
                             {{ value.name }}
