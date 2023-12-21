@@ -22,5 +22,5 @@ Search Result with term: Apple
 
 ## Dashboard
 
-Displaying price chart of Apple 2026 Bond, with useful information on right side and displaying related news under the graph.
+Displaying price chart of Apple 2026 Bond,moody's rating, with useful information on right side and displaying related news under the graph.
 ![Result Page](images/dashboard.png)
