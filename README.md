@@ -2,9 +2,9 @@
 Modern Bonds Search Engine.
 
 Options and derivative terminal | Modern Bonds Search Engine.
-(Just Bonds for now)
+(Currently Only Bonds)
 
-This is a web scraping project that provides detail about just bonds for now.
+For the time being, this web scraping project only offers information regarding bonds.
 
 ## Home Page ✨
 
@@ -34,7 +34,7 @@ Search Result with term: Apple
 
 ## Dashboard ✨
 
-Displaying price chart of Apple 2026 Bond,moody's rating, with useful information on right side and displaying related news under the graph.<br><br>
+Presenting the Apple 2026 Bond price chart, together with relevant news underneath the graph and helpful information on the right side.<br><br>
 ![Result Page](images/dashboard.png)
 
 ## Websites Scraped ✨
