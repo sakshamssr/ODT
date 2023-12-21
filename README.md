@@ -29,7 +29,7 @@ Yes, that's the image from [Notion](https://www.notion.so/) 🤫
 
 ## Search Page ✨
 
-Search Result with term: Apple
+Search Result with term: Apple<br><br>
 ![Search Page](images/search.png)
 
 ## Dashboard ✨
