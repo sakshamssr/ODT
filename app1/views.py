@@ -1,8 +1,8 @@
 from django.shortcuts import render
 import requests as req
+
 from .GNews_scrape import scrape
 from .graph2 import graph_data,topchart
-from .contact import send_email
 
 # Create your views here.
 def home(requests):
@@ -130,7 +130,6 @@ def submitcontact(request):
 
         tosend="From: "+email + " Message:"+body
 
-        send_email(subject, tosend, to_email)
-        #print(tosend)
+        send=req.get("https://bonds-terminal.vercel.app/contact/"+subject+"/"+to_email+"/"+tosend)
 
         return render(request, "contact.html", {'success': True,"title":"Thanks For Contacting Us!"})
