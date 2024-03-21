@@ -69,7 +69,7 @@ def details(request,para,link,para3,bondname):
     data=businessi(str(link))
     print(data)
 
-    fetchgraphData=eval(data["graphdata"].split(";")[0].replace("vardetailChartViewmodel",""))
+    fetchgraphData=eval(data["graphdata"])
     #print(fetchgraphData)
 
     gdata=graph_data(fetchgraphData["TKData"])

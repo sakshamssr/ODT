@@ -49,4 +49,6 @@ def businessi(term):
         store["rating"]="-"
     store["graphdata"]=st[23].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace("\n","").replace("\t","").replace('/','')
 
+    store["graphdata"]=store["graphdata"].split(";")[0].replace("vardetailChartViewmodel","")
+
     return store
