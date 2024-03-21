@@ -9,8 +9,8 @@ def scrape(query):
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
     name = soup.find_all(class_="JtKRv")
-    image=soup.find_all(class_="K0q4G")
-    time=soup.find_all(class_="hvbAAd")
+    #image=soup.find_all(class_="K0q4G")
+    #time=soup.find_all(class_="hvbAAd")
     link=soup.find_all(class_="WwrzSb")
 
     #print("Name:",name)
@@ -23,10 +23,10 @@ def scrape(query):
         try:
             title=str(name[i]).split('target="_blank">')[1].split("</a>")[0]
             #print(title)
-            imagelink=str(image[i]).split('src="')[1].split('" src')[0]
-            upload=time[i].text
+            #imagelink=str(image[i]).split('src="')[1].split('" src')[0]
+            #upload=time[i].text
             articleLink=str(link[i]).split('href="')[1].split('" jslog')[0]
-            store[i]={"title":title,"image":imagelink,"uploadTime":upload,"articlelink":articleLink}
+            store[i]={"title":title,"image":"#","uploadTime":"#","articlelink":articleLink}
         except:
             print("That's Enough!")
             break

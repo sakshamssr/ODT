@@ -1,8 +1,8 @@
 from django.shortcuts import render
 import requests as req
-
 from .GNews_scrape import scrape
 from .graph2 import graph_data,topchart
+from .details import businessi
 
 # Create your views here.
 def home(requests):
@@ -65,9 +65,9 @@ def search(request,para):
 
 def details(request,para,link,para3,bondname):
     from json import dumps
-    response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(link))
-    data=response.json()
-    #print(data)
+    # response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(link))
+    data=businessi(str(link))
+    print(data)
 
     fetchgraphData=eval(data["graphdata"].split(";")[0].replace("vardetailChartViewmodel",""))
     #print(fetchgraphData)
