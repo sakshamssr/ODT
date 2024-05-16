@@ -51,7 +51,7 @@
         <div class="mx-4 my-8 bg-gray-900 rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
             <div class="flex justify-between">
                 <div>
-                    <h5 class="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">Current Price: ${{fetchgraph.PreviousClose}} &nbsp; &nbsp; Issue Price: ${{issue}}</h5>
+                    <h5 class="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">Current Price: ${{fetchgraph.PreviousClose}} &nbsp; &nbsp; Issue Price: ${{previousclose}}</h5>
                     <p class="text-base font-normal text-gray-500 dark:text-gray-400">Price Chart</p>
                 </div>
                 <!--<div class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 dark:text-green-500 text-center">
@@ -121,8 +121,8 @@
     var data = JSON.parse("{{graphdata|escapejs}}"); 
     // ApexCharts options and config
     window.addEventListener("load", function () {
-        var datadate="{{ date }}"
-        var dataclose="{{ close }}"
+        // var datadate="{{ date }}"
+        // var dataclose="{{ close }}"
         let options = {
             // set the labels option to true to show the labels on the X and Y axis
             xaxis: {

@@ -9,7 +9,7 @@ def home(requests):
     data = scrape("live mint")
     top=topchart()
 
-    topbonds=req.get("https://bonds-terminal.vercel.app/topbonds").json()
+    topbonds=req.get("https://finance-api-ssr.vercel.app/topbonds").json()
     print(topbonds)
 
     topcolor=[]
@@ -46,7 +46,7 @@ def explore(request):
     return render(request,"explore_website.html")
 
 def search(request,para):
-    response=req.get("https://bonds-terminal.vercel.app/search2/"+str(para))
+    response=req.get("https://finance-api-ssr.vercel.app/search2/"+str(para))
     data=response.json()
     #print(data)
 
@@ -114,9 +114,9 @@ def details(request,para,link,para3,bondname):
 
     store["graphdata"]=store["graphdata"].split(";")[0].replace("vardetailChartViewmodel","")
     from json import dumps
-    # response=req.get("https://bonds-terminal.vercel.app/search2/details/"+str(link))
+    # response=req.get("https://finance-api-ssr.vercel.app/search2/details/"+str(link))
     data=store
-    print(data)
+    # print(data)
 
     fetchgraphData=eval(data["graphdata"])
     #print(fetchgraphData)
@@ -179,6 +179,6 @@ def submitcontact(request):
 
         tosend="From: "+email + " Message:"+body
 
-        send=req.get("https://bonds-terminal.vercel.app/contact/"+subject+"/"+to_email+"/"+tosend)
+        send=req.get("https://finance-api-ssr.vercel.app/contact/"+subject+"/"+to_email+"/"+tosend)
 
         return render(request, "contact.html", {'success': True,"title":"Thanks For Contacting Us!"})
